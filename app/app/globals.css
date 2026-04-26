@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  /* Kundalini University brand palette */
+  --color-twilight-indigo: #383154;
+  --color-sunlit-amber: #eebe55;
+  --color-midnight-plum: #530e36;
+  --color-forest-shadow: #1c423e;
+  --color-creamsicle-dream: #fcf0dd;
+  --color-sage-stone: #96aa9f;
+  --color-rustic-copper: #974320;
+  --color-scarlet-ember: #f25c54;
+  --color-rosy-blush: #f4b6c3;
+  --color-ethereal-lavender: #deddfc;
+  --color-misty-mauve: #9da7ea;
+  --color-minty-frost: #d7ffe9;
+
+  --color-background: var(--color-creamsicle-dream);
+  --color-foreground: var(--color-twilight-indigo);
+
+  --font-heading: var(--font-quattrocento), Georgia, serif;
+  --font-body: var(--font-questrial), system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}

@@ -1,0 +1,1 @@
+DROP TABLE "ghl_settings" CASCADE;
