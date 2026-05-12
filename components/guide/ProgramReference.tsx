@@ -5,7 +5,7 @@ const PROGRAMS = [
     bullets: [
       "Duration: ~6 months (Oct 2026 ~ Apr 2027)",
       "Calls Begin: October 7, 2026",
-      "Schedule: Wed 4~6 PM PST / Sat 9~11 AM PST",
+      "Schedule: Wed 9~11 AM PST / Fri 4~6 PM PST",
       "Attendance: 1 call/week (same material)",
       "22 Krya Modules · 3 learning journeys",
       "Guru Singh + faculty",
