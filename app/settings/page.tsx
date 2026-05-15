@@ -25,44 +25,46 @@ export default async function SettingsPage() {
           Settings
         </h1>
 
-        <section className="rounded-2xl border border-twilight-indigo/10 bg-white/40 p-6 space-y-4">
-          <div className="flex items-center justify-between">
-            <h2 className="font-heading text-xl font-bold text-twilight-indigo">
-              GoHighLevel
-            </h2>
-            <ConnectionDot connected={connected} />
-          </div>
-
-          <p className="text-sm text-twilight-indigo/60">
-            GHL is configured via environment variables. Edit{" "}
-            <code className="rounded bg-twilight-indigo/5 px-1 py-0.5 text-xs">
-              .env.local
-            </code>{" "}
-            and restart the dev server to change credentials.
-          </p>
-
-          {connected ? (
-            <dl className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-              <Item label="Location ID" value={config!.locationId} mono />
-              <Item
-                label="Calendar ID"
-                value={config!.calendarId ?? "(not set — Import Booked disabled)"}
-                mono={!!config!.calendarId}
-              />
-            </dl>
-          ) : (
-            <div className="rounded-xl border border-rustic-copper/30 bg-sunlit-amber/15 px-4 py-3 text-sm text-rustic-copper">
-              <p className="font-medium">Not configured.</p>
-              <p className="mt-1">
-                Set <code>GHL_LOCATION_ID</code> and <code>GHL_API_KEY</code> in{" "}
-                <code>.env.local</code> (and optionally{" "}
-                <code>GHL_CALENDAR_ID</code>), then restart the server.
-              </p>
+        {user.role === "admin" && (
+          <section className="rounded-2xl border border-twilight-indigo/10 bg-white/40 p-6 space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="font-heading text-xl font-bold text-twilight-indigo">
+                GoHighLevel
+              </h2>
+              <ConnectionDot connected={connected} />
             </div>
-          )}
 
-          {connected && <GhlVerifyButton />}
-        </section>
+            <p className="text-sm text-twilight-indigo/60">
+              GHL is configured via environment variables. Edit{" "}
+              <code className="rounded bg-twilight-indigo/5 px-1 py-0.5 text-xs">
+                .env.local
+              </code>{" "}
+              and restart the dev server to change credentials.
+            </p>
+
+            {connected ? (
+              <dl className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                <Item label="Location ID" value={config!.locationId} mono />
+                <Item
+                  label="Calendar ID"
+                  value={config!.calendarId ?? "(not set — Import Booked disabled)"}
+                  mono={!!config!.calendarId}
+                />
+              </dl>
+            ) : (
+              <div className="rounded-xl border border-rustic-copper/30 bg-sunlit-amber/15 px-4 py-3 text-sm text-rustic-copper">
+                <p className="font-medium">Not configured.</p>
+                <p className="mt-1">
+                  Set <code>GHL_LOCATION_ID</code> and <code>GHL_API_KEY</code> in{" "}
+                  <code>.env.local</code> (and optionally{" "}
+                  <code>GHL_CALENDAR_ID</code>), then restart the server.
+                </p>
+              </div>
+            )}
+
+            {connected && <GhlVerifyButton />}
+          </section>
+        )}
 
         <section className="rounded-2xl border border-twilight-indigo/10 bg-white/40 p-6 space-y-4">
           <div>

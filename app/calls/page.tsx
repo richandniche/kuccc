@@ -41,10 +41,12 @@ export default async function CallsPage() {
         <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
           <h1 className="text-3xl font-bold text-twilight-indigo">Call Log</h1>
           <div className="flex items-center gap-4">
-            <GhlImportButton
-              connected={!!ghlConfig}
-              hasCalendar={!!ghlConfig?.calendarId}
-            />
+            {user.role === "admin" && (
+              <GhlImportButton
+                connected={!!ghlConfig}
+                hasCalendar={!!ghlConfig?.calendarId}
+              />
+            )}
             <p className="text-sm text-twilight-indigo/60">
               {rows.length} {rows.length === 1 ? "call" : "calls"}
             </p>
